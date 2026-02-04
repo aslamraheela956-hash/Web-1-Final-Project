@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium sports shoes collection - Find your perfect pair">
+    <title>SoleMate | Premium Sports Shoes</title>
+    <style>
+/* ==========================================================================
+   SPORTS SHOES PORTFOLIO - MOBILE FIRST DESIGN
+   ========================================================================== */
+
+:root {
+    /* Brownish Color Palette */
+    --color-primary: #8B4513;      /* Saddle Brown for CTAs */
+    --color-primary-dark: #5C2E0A; /* Darker brown for hover */
+    --color-secondary: #A0826D;    /* Warm tan for text */
+    --color-accent: #D2691E;       /* Chocolate orange for badges */
+    --color-success: #6B8E23;      /* Olive green for success */
+    --color-danger: #A0522D;       /* Sienna for sale badges */
+    
+    /* Neutrals */
+    --color-dark: #3E2723;
+    --color-text: #4E342E;
+    --color-text-light: #795548;
+    --color-border: #D7CCC8;
+    --color-bg: #ffffff;
+    --color-bg-alt: #F5E6D3;
+    
+    /* Typography - Mobile First */
+    --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-size-base: 0.875rem;    /* 14px - smaller on mobile */
+    --font-size-sm: 0.75rem;       /* 12px */
+    --font-size-lg: 1rem;          /* 16px */
+    --font-size-xl: 1.25rem;       /* 20px */
+    --font-size-2xl: 1.5rem;       /* 24px */
+    --font-size-3xl: 1.875rem;     /* 30px */
+    
+    /* Spacing - Mobile First (smaller) */
+    --spacing-xs: 0.375rem;        /* 6px */
+    --spacing-sm: 0.75rem;         /* 12px */
+    --spacing-md: 1rem;            /* 16px */
+    --spacing-lg: 1.5rem;          /* 24px */
+    --spacing-xl: 2rem;            /* 32px */
+    --spacing-2xl: 2.5rem;         /* 40px */
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+    
+    /* Border Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 350ms ease;
+    
+    /* Layout */
+    --container-max: 1200px;
+    --header-height: 60px;         /* Smaller on mobile */
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    :root {
+        --font-size-base: 1rem;        /* 16px */
+        --font-size-2xl: 2rem;         /* 32px */
+        --font-size-3xl: 2.5rem;       /* 40px */
+        --spacing-xl: 3rem;            /* 48px */
+        --spacing-2xl: 4rem;           /* 64px */
+        --header-height: 70px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    :root {
+        --font-size-3xl: 3rem;         /* 48px */
+    }
+}
+
+/* ==========================================================================
+   RESET & BASE
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-text);
+    background: linear-gradient(to bottom, #E8D7C3 0%, #FAF6F3 100%);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+/* ==========================================================================
+   LAYOUT - MOBILE FIRST
+   ========================================================================== */
+
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);  /* 16px on mobile */
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-lg);  /* 24px on tablet */
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 var(--spacing-xl);  /* 48px on desktop */
+    }
+}
+
+/* ==========================================================================
+   HEADER - MOBILE FIRST
+   ========================================================================== */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-bg);
+    box-shadow: var(--shadow-sm);
+    height: var(--header-height);
+}
+
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+}
+
+.logo {
+    font-size: var(--font-size-lg);  /* Smaller on mobile */
+    font-weight: 700;
+    color: var(--color-dark);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.logo__icon {
+    font-size: var(--font-size-xl);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    .logo {
+        font-size: var(--font-size-xl);
+    }
+    
+    .logo__icon {
+        font-size: var(--font-size-2xl);
+    }
+}
+
+/* ==========================================================================
+   NAVIGATION - MOBILE FIRST
+   ========================================================================== */
+
+/* Mobile navigation (hamburger menu) */
+.nav__toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    z-index: 101;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-dark);
+    transition: all var(--transition-base);
+    border-radius: 2px;
+}
+
+.hamburger {
+    position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+}
+
+.hamburger::before {
+    top: -7px;
+}
+
+.hamburger::after {
+    top: 7px;
+}
+
+.nav__toggle[aria-expanded="true"] .hamburger {
+    background-color: transparent;
+}
+
+.nav__toggle[aria-expanded="true"] .hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.nav__toggle[aria-expanded="true"] .hamburger::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/* Mobile menu */
+.nav__list {
+    position: fixed;
+    top: var(--header-height);
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: calc(100vh - var(--header-height));
+    background-color: var(--color-bg);
+    box-shadow: var(--shadow-xl);
+    padding: var(--spacing-lg);
+    transition: right var(--transition-slow);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.nav__list.active {
+    right: 0;
+}
+
+.nav__item {
+    margin-bottom: var(--spacing-md);
+}
+
+.nav__link {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--color-text);
+    display: block;
+    padding: var(--spacing-xs) 0;
+    transition: color var(--transition-fast);
+}
+
+.nav__link:hover,
+.nav__link:focus {
+    color: var(--color-primary);
+}
+
+/* Tablet and up - horizontal navigation */
+@media (min-width: 768px) {
+    .nav__toggle {
+        display: none;
+    }
+
+    .nav__list {
+        position: static;
+        display: flex;
+        gap: var(--spacing-lg);
+        width: auto;
+        height: auto;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .nav__item {
+        margin-bottom: 0;
+    }
+
+    .nav__link {
+        font-size: var(--font-size-base);
+        padding: 0;
+    }
+}
+
+/* ==========================================================================
+   HERO SECTION - MOBILE FIRST
+   ========================================================================== */
+
+.hero {
+    background: linear-gradient(to bottom, #DCC9B3 0%, #E8D7C3 100%);
+    padding: var(--spacing-xl) 0;  /* Smaller padding on mobile */
+    text-align: center;
+}
+
+.hero__title {
+    font-size: var(--font-size-2xl);  /* Smaller on mobile */
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+.hero__subtitle {
+    font-size: var(--font-size-base);  /* Smaller on mobile */
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+    padding: 0 var(--spacing-sm);
+}
+
+.hero__cta {
+    display: flex;
+    flex-direction: column;  /* Stack buttons on mobile */
+    gap: var(--spacing-sm);
+    align-items: center;
+    padding: 0 var(--spacing-md);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    .hero {
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    .hero__title {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .hero__subtitle {
+        font-size: var(--font-size-lg);
+        padding: 0;
+    }
+    
+    .hero__cta {
+        flex-direction: row;  /* Side by side on tablet+ */
+        justify-content: center;
+        padding: 0;
+    }
+}
+
+/* ==========================================================================
+   BUTTONS - MOBILE FIRST
+   ========================================================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.25rem;  /* Slightly smaller on mobile */
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    text-decoration: none;
+    white-space: nowrap;
+    width: 100%;  /* Full width on mobile */
+    max-width: 280px;  /* But not too wide */
+}
+
+.btn--primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.btn--primary:hover,
+.btn--primary:focus {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn--secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn--small {
+    padding: 0.5rem 1rem;
+    font-size: var(--font-size-sm);
+}
+
+.btn--full {
+    width: 100%;
+    max-width: none;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: var(--font-size-base);
+        width: auto;  /* Auto width on larger screens */
+    }
+}
+
+/* ==========================================================================
+   PRODUCTS SECTION - MOBILE FIRST
+   ========================================================================== */
+
+.products {
+    padding: var(--spacing-xl) 0;
+}
+
+.section__title {
+    font-size: var(--font-size-xl);  /* Smaller on mobile */
+    font-weight: 700;
+    color: var(--color-dark);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    .products {
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    .section__title {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--spacing-lg);
+    }
+}
+
+/* ==========================================================================
+   FILTER BUTTONS - MOBILE FIRST
+   ========================================================================== */
+
+.filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-xs);  /* Smaller gap on mobile */
+    margin-bottom: var(--spacing-lg);
+    padding: 0 var(--spacing-xs);
+}
+
+.filter-btn {
+    padding: 0.5rem 0.875rem;  /* Smaller padding on mobile */
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    background-color: white;
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-btn:hover,
+.filter-btn:focus {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.filter-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    .filter {
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .filter-btn {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* ==========================================================================
+   PRODUCT GRID - MOBILE FIRST
+   ========================================================================== */
+
+.products__grid {
+    display: grid;
+    grid-template-columns: 1fr;  /* Single column on mobile */
+    gap: var(--spacing-md);
+}
+
+/* Small tablets */
+@media (min-width: 480px) {
+    .products__grid {
+        grid-template-columns: repeat(2, 1fr);  /* 2 columns */
+    }
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    .products__grid {
+        grid-template-columns: repeat(2, 1fr);  /* 2 columns */
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .products__grid {
+        grid-template-columns: repeat(3, 1fr);  /* 3 columns */
+    }
+}
+
+/* ==========================================================================
+   PRODUCT CARD - MOBILE FIRST
+   ========================================================================== */
+
+.product-card {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.product-card.hidden {
+    display: none;
+}
+
+.product-card__image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+    background-color: var(--color-bg-alt);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.product-card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+.product-card:hover .product-card__image {
+    transform: scale(1.05);
+}
+
+.product-card__badge {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    background-color: var(--color-accent);
+    color: white;
+    padding: 0.25rem 0.5rem;  /* Smaller on mobile */
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;  /* Smaller font on mobile */
+    font-weight: 600;
+    z-index: 10;
+}
+
+.product-card__badge--sale {
+    background-color: var(--color-danger);
+}
+
+.product-card__content {
+    padding: var(--spacing-sm);  /* Less padding on mobile */
+}
+
+.product-card__title {
+    font-size: var(--font-size-base);  /* Smaller on mobile */
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.product-card__category {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-xs);
+}
+
+.product-card__price {
+    font-size: var(--font-size-lg);  /* Smaller on mobile */
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    .product-card__badge {
+        padding: 0.25rem 0.75rem;
+        font-size: var(--font-size-sm);
+    }
+    
+    .product-card__content {
+        padding: var(--spacing-md);
+    }
+    
+    .product-card__title {
+        font-size: var(--font-size-lg);
+    }
+    
+    .product-card__price {
+        font-size: var(--font-size-xl);
+    }
+}
+
+/* ==========================================================================
+   MODAL - MOBILE FIRST
+   ========================================================================== */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm);  /* Small padding on mobile */
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(2px);
+}
+
+.modal__content {
+    position: relative;
+    background: linear-gradient(135deg, #F5E6D3 0%, #EFEBE9 100%);
+    border-radius: var(--radius-lg);
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-xl);
+    -webkit-overflow-scrolling: touch;
+}
+
+.modal__close {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    width: 36px;  /* Slightly smaller on mobile */
+    height: 36px;
+    border-radius: 50%;
+    background-color: white;
+    border: none;
+    font-size: var(--font-size-xl);
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-fast);
+}
+
+.modal__close:hover {
+    background-color: var(--color-danger);
+    color: white;
+    transform: rotate(90deg);
+}
+
+.modal__body {
+    display: grid;
+    grid-template-columns: 1fr;  /* Single column on mobile */
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+}
+
+.modal__image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.modal__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.modal__title {
+    font-size: var(--font-size-xl);  /* Smaller on mobile */
+    font-weight: 700;
+    color: var(--color-dark);
+}
+
+.modal__category {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+}
+
+.modal__price {
+    font-size: var(--font-size-xl);  /* Smaller on mobile */
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: var(--spacing-xs) 0;
+}
+
+.modal__description {
+    font-size: var(--font-size-sm);  /* Smaller on mobile */
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    .modal__close {
+        width: 40px;
+        height: 40px;
+        font-size: var(--font-size-2xl);
+    }
+    
+    .modal__body {
+        grid-template-columns: 1fr 1fr;  /* Two columns */
+        padding: var(--spacing-xl);
+    }
+    
+    .modal__title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .modal__price {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .modal__description {
+        font-size: var(--font-size-base);
+    }
+}
+
+/* ==========================================================================
+   PRODUCT DETAILS - MOBILE FIRST
+   ========================================================================== */
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);  /* Smaller gap on mobile */
+    margin: var(--spacing-sm) 0;
+    padding: var(--spacing-sm);  /* Less padding on mobile */
+    background-color: var(--color-bg-alt);
+    border-radius: var(--radius-md);
+}
+
+.detail-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.detail-label {
+    font-size: 0.7rem;  /* Smaller on mobile */
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-value {
+    font-size: var(--font-size-sm);  /* Smaller on mobile */
+    color: var(--color-dark);
+    font-weight: 500;
+}
+
+.color-options {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+}
+
+.color-dot {
+    width: 28px;  /* Smaller on mobile */
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--color-border);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.color-dot:hover {
+    transform: scale(1.1);
+    border-color: var(--color-primary);
+}
+
+.delivery-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs);  /* Less padding on mobile */
+    background-color: #E8F5E9;
+    border-radius: var(--radius-sm);
+    margin-top: var(--spacing-xs);
+}
+
+.delivery-icon {
+    font-size: var(--font-size-lg);
+}
+
+.delivery-text {
+    font-size: 0.7rem;  /* Smaller on mobile */
+    color: var(--color-success);
+    font-weight: 600;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    .product-details {
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+    
+    .detail-label {
+        font-size: var(--font-size-sm);
+    }
+    
+    .detail-value {
+        font-size: var(--font-size-base);
+    }
+    
+    .color-dot {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .delivery-info {
+        padding: var(--spacing-sm);
+    }
+    
+    .delivery-text {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* ==========================================================================
+   REVIEWS SECTION - MOBILE FIRST
+   ========================================================================== */
+
+.reviews {
+    padding: var(--spacing-xl) 0;
+}
+
+.reviews__header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.reviews__title {
+    font-size: var(--font-size-xl);  /* Smaller on mobile */
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.reviews__subtitle {
+    font-size: var(--font-size-base);  /* Smaller on mobile */
+    color: var(--color-text-light);
+    padding: 0 var(--spacing-sm);
+}
+
+.reviews__grid {
+    display: grid;
+    grid-template-columns: 1fr;  /* Single column on mobile */
+    gap: var(--spacing-md);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .reviews {
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    .reviews__header {
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .reviews__title {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .reviews__subtitle {
+        font-size: var(--font-size-lg);
+        padding: 0;
+    }
+    
+    .reviews__grid {
+        grid-template-columns: repeat(2, 1fr);  /* 2 columns */
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .reviews__title {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .reviews__grid {
+        grid-template-columns: repeat(3, 1fr);  /* 3 columns */
+    }
+}
+
+/* ==========================================================================
+   REVIEW CARD - MOBILE FIRST
+   ========================================================================== */
+
+.review-card {
+    background-color: var(--color-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);  /* Less padding on mobile */
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.review-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.review-card__avatar {
+    width: 40px;  /* Smaller on mobile */
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    flex-shrink: 0;
+}
+
+.review-card__info {
+    flex: 1;
+    min-width: 0;
+}
+
+.review-card__name {
+    font-size: var(--font-size-sm);  /* Smaller on mobile */
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 2px;
+}
+
+.review-card__rating {
+    color: #FFD700;
+    font-size: 0.75rem;  /* Smaller on mobile */
+}
+
+.review-card__text {
+    font-size: var(--font-size-sm);  /* Smaller on mobile */
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-sm);
+}
+
+.review-card__product {
+    font-size: 0.75rem;  /* Smaller on mobile */
+    color: var(--color-text-light);
+    font-style: italic;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    .review-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .review-card__avatar {
+        width: 50px;
+        height: 50px;
+        font-size: var(--font-size-lg);
+    }
+    
+    .review-card__name {
+        font-size: var(--font-size-base);
+    }
+    
+    .review-card__rating {
+        font-size: var(--font-size-sm);
+    }
+    
+    .review-card__text {
+        font-size: var(--font-size-base);
+        line-height: 1.7;
+    }
+    
+    .review-card__product {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* ==========================================================================
+   FOOTER - MOBILE FIRST
+   ========================================================================== */
+
+.footer {
+    background-color: var(--color-dark);
+    color: white;
+    padding: var(--spacing-md) 0;  /* Less padding on mobile */
+    margin-top: var(--spacing-xl);
+}
+
+.footer__content {
+    display: flex;
+    flex-direction: column;  /* Stack on mobile */
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-align: center;
+    font-size: var(--font-size-sm);  /* Smaller on mobile */
+}
+
+.footer__social {
+    display: flex;
+    gap: var(--spacing-sm);  /* Smaller gap on mobile */
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer__link {
+    color: var(--color-bg-alt);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+}
+
+.footer__link:hover,
+.footer__link:focus {
+    color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.footer__icon {
+    width: 20px;  /* Smaller on mobile */
+    height: 20px;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    .footer {
+        padding: var(--spacing-lg) 0;
+        margin-top: var(--spacing-2xl);
+    }
+    
+    .footer__content {
+        flex-direction: row;  /* Side by side on tablet+ */
+        justify-content: space-between;
+        text-align: left;
+        font-size: var(--font-size-base);
+    }
+    
+    .footer__social {
+        gap: var(--spacing-md);
+    }
+    
+    .footer__link {
+        font-size: var(--font-size-base);
+    }
+    
+    .footer__icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.product-card {
+    animation: fadeIn var(--transition-slow) ease-out;
+}
+
+/* ==========================================================================
+   TOUCH OPTIMIZATIONS FOR MOBILE
+   ========================================================================== */
+
+@media (hover: none) and (pointer: coarse) {
+    /* Touch devices - larger tap targets */
+    .btn {
+        min-height: 44px;  /* Apple's recommended minimum */
+    }
+    
+    .filter-btn {
+        min-height: 40px;
+        padding: 0.625rem 1rem;
+    }
+    
+    .nav__link {
+        padding: var(--spacing-sm) 0;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header__content">
+                <a href="#" class="logo">
+                    <span class="logo__icon">👟</span>
+                    <span>SoleMate</span>
+                </a>
+                <nav class="nav" role="navigation">
+                    <button class="nav__toggle" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="hamburger"></span>
+                    </button>
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                        <li class="nav__item"><a href="#products" class="nav__link">Products</a></li>
+                        <li class="nav__item"><a href="#reviews" class="nav__link">Reviews</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1 class="hero__title">Step Into Excellence</h1>
+            <p class="hero__subtitle">Premium sports shoes engineered for champions. Performance meets style.</p>
+            <div class="hero__cta">
+                <a href="#products" class="btn btn--primary">Shop Collection</a>
+                <a href="#reviews" class="btn btn--secondary">Read Reviews</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section__title">Our Collection</h2>
+            
+            <!-- Filter Buttons -->
+            <div class="filter" role="group" aria-label="Product filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="running">Running</button>
+                <button class="filter-btn" data-filter="basketball">Basketball</button>
+                <button class="filter-btn" data-filter="training">Training</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="products__grid">
+                <!-- Product 1 -->
+                <article class="product-card" data-category="running">
+                    <div class="product-card__image-wrapper">
+                        <span class="product-card__badge">New</span>
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop" 
+                             alt="AirFlow Runner" 
+                             class="product-card__image"
+                             loading="lazy">
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">AirFlow Runner</h3>
+                        <p class="product-card__category">Running</p>
+                        <p class="product-card__price">$129.99</p>
+                        <button class="btn btn--primary btn--small view-details" data-id="1">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product-card" data-category="basketball">
+                    <div class="product-card__image-wrapper">
+                        <span class="product-card__badge product-card__badge--sale">Sale</span>
+                        <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&h=600&fit=crop" 
+                             alt="SlamDunk Pro" 
+                             class="product-card__image"
+                             loading="lazy">
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">SlamDunk Pro</h3>
+                        <p class="product-card__category">Basketball</p>
+                        <p class="product-card__price">$159.99</p>
+                        <button class="btn btn--primary btn--small view-details" data-id="2">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="product-card" data-category="training">
+                    <div class="product-card__image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=600&fit=crop" 
+                             alt="FlexFit Trainer" 
+                             class="product-card__image"
+                             loading="lazy">
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">FlexFit Trainer</h3>
+                        <p class="product-card__category">Training</p>
+                        <p class="product-card__price">$99.99</p>
+                        <button class="btn btn--primary btn--small view-details" data-id="3">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 4 -->
+                <article class="product-card" data-category="running">
+                    <div class="product-card__image-wrapper">
+                        <span class="product-card__badge">New</span>
+                        <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&h=600&fit=crop" 
+                             alt="SpeedDemon X" 
+                             class="product-card__image"
+                             loading="lazy">
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">SpeedDemon X</h3>
+                        <p class="product-card__category">Running</p>
+                        <p class="product-card__price">$139.99</p>
+                        <button class="btn btn--primary btn--small view-details" data-id="4">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 5 -->
+                <article class="product-card" data-category="basketball">
+                    <div class="product-card__image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&h=600&fit=crop" 
+                             alt="CourtKing Elite" 
+                             class="product-card__image"
+                             loading="lazy">
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">CourtKing Elite</h3>
+                        <p class="product-card__category">Basketball</p>
+                        <p class="product-card__price">$179.99</p>
+                        <button class="btn btn--primary btn--small view-details" data-id="5">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 6 -->
+                <article class="product-card" data-category="training">
+                    <div class="product-card__image-wrapper">
+                        <span class="product-card__badge">Popular</span>
+                        <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600&h=600&fit=crop" 
+                             alt="PowerLift 360" 
+                             class="product-card__image"
+                             loading="lazy">
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">PowerLift 360</h3>
+                        <p class="product-card__category">Training</p>
+                        <p class="product-card__price">$119.99</p>
+                        <button class="btn btn--primary btn--small view-details" data-id="6">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 7 -->
+                <article class="product-card" data-category="running">
+                    <div class="product-card__image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&h=600&fit=crop" 
+                             alt="CloudRun Lite" 
+                             class="product-card__image"
+                             loading="lazy">
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">CloudRun Lite</h3>
+                        <p class="product-card__category">Running</p>
+                        <p class="product-card__price">$109.99</p>
+                        <button class="btn btn--primary btn--small view-details" data-id="7">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 8 -->
+                <article class="product-card" data-category="basketball">
+                    <div class="product-card__image-wrapper">
+                        <span class="product-card__badge product-card__badge--sale">Sale</span>
+                        <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?w=600&h=600&fit=crop" 
+                             alt="HoopMaster Pro" 
+                             class="product-card__image"
+                             loading="lazy">
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">HoopMaster Pro</h3>
+                        <p class="product-card__category">Basketball</p>
+                        <p class="product-card__price">$149.99</p>
+                        <button class="btn btn--primary btn--small view-details" data-id="8">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 9 -->
+                <article class="product-card" data-category="training">
+                    <div class="product-card__image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=600&h=600&fit=crop" 
+                             alt="GymForce Max" 
+                             class="product-card__image"
+                             loading="lazy">
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">GymForce Max</h3>
+                        <p class="product-card__category">Training</p>
+                        <p class="product-card__price">$134.99</p>
+                        <button class="btn btn--primary btn--small view-details" data-id="9">View Details</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="reviews__header">
+                <h2 class="reviews__title">What Our Customers Say</h2>
+                <p class="reviews__subtitle">Real reviews from real athletes</p>
+            </div>
+            <div class="reviews__grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-card__header">
+                        <div class="review-card__avatar">AK</div>
+                        <div class="review-card__info">
+                            <h3 class="review-card__name">Ali Khan</h3>
+                            <div class="review-card__rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-card__text">
+                        "Best running shoes I've ever owned! The AirFlow Runner provides incredible comfort 
+                        and support. Worth every penny!"
+                    </p>
+                    <p class="review-card__product">Purchased: AirFlow Runner</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-card__header">
+                        <div class="review-card__avatar">SF</div>
+                        <div class="review-card__info">
+                            <h3 class="review-card__name">Sara Fatima</h3>
+                            <div class="review-card__rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-card__text">
+                        "Amazing quality and fast shipping! The FlexFit Trainer is perfect for my daily workouts. 
+                        Highly recommended!"
+                    </p>
+                    <p class="review-card__product">Purchased: FlexFit Trainer</p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-card__header">
+                        <div class="review-card__avatar">MH</div>
+                        <div class="review-card__info">
+                            <h3 class="review-card__name">Muhammad Hassan</h3>
+                            <div class="review-card__rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-card__text">
+                        "SlamDunk Pro exceeded my expectations! Great ankle support and excellent grip on the court. 
+                        Best basketball shoes!"
+                    </p>
+                    <p class="review-card__product">Purchased: SlamDunk Pro</p>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-card__header">
+                        <div class="review-card__avatar">AM</div>
+                        <div class="review-card__info">
+                            <h3 class="review-card__name">Ayesha Malik</h3>
+                            <div class="review-card__rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-card__text">
+                        "Love my new SpeedDemon X! Lightweight, breathable, and stylish. 
+                        Perfect for marathon training!"
+                    </p>
+                    <p class="review-card__product">Purchased: SpeedDemon X</p>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <div class="review-card__header">
+                        <div class="review-card__avatar">UA</div>
+                        <div class="review-card__info">
+                            <h3 class="review-card__name">Usman Ali</h3>
+                            <div class="review-card__rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-card__text">
+                        "CourtKing Elite is a game changer! Superior cushioning and great design. 
+                        Customer service was also excellent."
+                    </p>
+                    <p class="review-card__product">Purchased: CourtKing Elite</p>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <div class="review-card__header">
+                        <div class="review-card__avatar">ZA</div>
+                        <div class="review-card__info">
+                            <h3 class="review-card__name">Zainab Ahmad</h3>
+                            <div class="review-card__rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-card__text">
+                        "PowerLift 360 is perfect for my strength training. Great stability and support. 
+                        Fast delivery and excellent customer service. Very happy with my purchase!"
+                    </p>
+                    <p class="review-card__product">Purchased: PowerLift 360</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <button class="modal__close" aria-label="Close modal">&times;</button>
+            <div class="modal__body">
+                <img src="" alt="" class="modal__image" id="modalImage">
+                <div class="modal__info">
+                    <h3 class="modal__title" id="modalTitle">Product Name</h3>
+                    <p class="modal__category" id="modalCategory">Category</p>
+                    <p class="modal__price" id="modalPrice">$0.00</p>
+                    <p class="modal__description">
+                        Premium quality sports shoes engineered for peak performance. 
+                        Features advanced cushioning, breathable materials, and durable construction.
+                    </p>
+                    
+                    <!-- Product Details Section -->
+                    <div class="product-details">
+                        <div class="detail-section">
+                            <span class="detail-label">Available Sizes</span>
+                            <span class="detail-value">All Sizes Available (6-13 US)</span>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <span class="detail-label">Available Colors</span>
+                            <div class="color-options">
+                                <div class="color-dot" style="background-color: #000000;" title="Black"></div>
+                                <div class="color-dot" style="background-color: #FFFFFF; border-color: #999;" title="White"></div>
+                                <div class="color-dot" style="background-color: #FF0000;" title="Red"></div>
+                                <div class="color-dot" style="background-color: #0000FF;" title="Blue"></div>
+                                <div class="color-dot" style="background-color: #808080;" title="Gray"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <span class="detail-label">Delivery Time</span>
+                            <div class="delivery-info">
+                                <span class="delivery-icon">🚚</span>
+                                <span class="delivery-text">Fast Delivery: 2-3 Days to Your Doorstep!</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn--primary btn--full">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__content">
+                <p>&copy; 2026 SoleMate. Built with passion for runners.</p>
+                <div class="footer__social">
+                    <a href="https://facebook.com" aria-label="Facebook" class="footer__link" target="_blank" rel="noopener">
+                        <svg class="footer__icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://instagram.com" aria-label="Instagram" class="footer__link" target="_blank" rel="noopener">
+                        <svg class="footer__icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://twitter.com" aria-label="Twitter" class="footer__link" target="_blank" rel="noopener">
+                        <svg class="footer__icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                        <span>Twitter</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+// Product data
+const products = {
+    1: { title: 'AirFlow Runner', category: 'Running', price: '$129.99', img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop' },
+    2: { title: 'SlamDunk Pro', category: 'Basketball', price: '$159.99', img: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&h=600&fit=crop' },
+    3: { title: 'FlexFit Trainer', category: 'Training', price: '$99.99', img: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=600&fit=crop' },
+    4: { title: 'SpeedDemon X', category: 'Running', price: '$139.99', img: 'https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&h=600&fit=crop' },
+    5: { title: 'CourtKing Elite', category: 'Basketball', price: '$179.99', img: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&h=600&fit=crop' },
+    6: { title: 'PowerLift 360', category: 'Training', price: '$119.99', img: 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600&h=600&fit=crop' },
+    7: { title: 'CloudRun Lite', category: 'Running', price: '$109.99', img: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&h=600&fit=crop' },
+    8: { title: 'HoopMaster Pro', category: 'Basketball', price: '$149.99', img: 'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?w=600&h=600&fit=crop' },
+    9: { title: 'GymForce Max', category: 'Training', price: '$134.99', img: 'https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=600&h=600&fit=crop' }
+};
+
+// Mobile menu toggle
+const navToggle = document.querySelector('.nav__toggle');
+const navList = document.querySelector('.nav__list');
+
+navToggle.addEventListener('click', () => {
+    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', !isExpanded);
+    navList.classList.toggle('active');
+});
+
+// Close menu when clicking nav links
+document.querySelectorAll('.nav__link').forEach(link => {
+    link.addEventListener('click', () => {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navList.classList.remove('active');
+    });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!navToggle.contains(e.target) && !navList.contains(e.target)) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navList.classList.remove('active');
+    }
+});
+
+// Filter functionality
+const filterButtons = document.querySelectorAll('.filter-btn');
+const productCards = document.querySelectorAll('.product-card');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Filter products
+        productCards.forEach(card => {
+            if (filter === 'all' || card.dataset.category === filter) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    });
+});
+
+// Modal functionality
+const modal = document.getElementById('productModal');
+const modalImage = document.getElementById('modalImage');
+const modalTitle = document.getElementById('modalTitle');
+const modalCategory = document.getElementById('modalCategory');
+const modalPrice = document.getElementById('modalPrice');
+const modalClose = document.querySelector('.modal__close');
+const modalOverlay = document.querySelector('.modal__overlay');
+
+document.querySelectorAll('.view-details').forEach(button => {
+    button.addEventListener('click', () => {
+        const productId = button.dataset.id;
+        const product = products[productId];
+        
+        modalImage.src = product.img;
+        modalImage.alt = product.title;
+        modalTitle.textContent = product.title;
+        modalCategory.textContent = product.category;
+        modalPrice.textContent = product.price;
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+modalClose.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', closeModal);
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Lazy loading optimization for images
+if ('loading' in HTMLImageElement.prototype) {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+        img.src = img.src;
+    });
+} else {
+    // Fallback for browsers that don't support lazy loading
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+    document.body.appendChild(script);
+}
+    </script>
+</body>
+</html>
